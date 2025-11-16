@@ -1,149 +1,206 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transformar para Convivir</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transformar para Convivir</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary-blue: #007bff;
+    --secondary-blue: #e7f3ff;
+    --dark-text: #333;
+    --light-text: #666;
+    --white: #fff;
+    --light-gray: #f8f9fa;
+    --shadow: rgba(0, 0, 0, 0.08);
+}
 
-    <style>
-        :root {
-            --primary-blue: #007bff;
-            --secondary-blue: #e7f3ff;
-            --dark-text: #333;
-            --light-text: #666;
-            --white: #fff;
-            --light-gray: #f8f9fa;
-            --border-color: #dee2e6;
-            --shadow: rgba(0, 0, 0, 0.08);
-        }
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.6;
+    color: var(--dark-text);
+    background-color: var(--white);
+}
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            line-height: 1.6;
-            color: var(--dark-text);
-            background-color: var(--white);
-        }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+header {
+    background: var(--white);
+    box-shadow: 0 2px 10px var(--shadow);
+}
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary-blue), #0056b3);
-            color: var(--white);
-            text-align: center;
-            padding: 100px 20px;
-            position: relative;
-            overflow: hidden;
-        }
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .hero::before, .hero::after {
-            content: '';
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-        }
+.logo { font-weight: 700; font-size: 1.3em; color: var(--primary-blue); }
 
-        .hero::before {
-            top: -50px; left: -50px;
-            width: 200px; height: 200px;
-            transform: rotate(45deg);
-        }
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0; padding: 0;
+}
 
-        .hero::after {
-            bottom: -50px; right: -50px;
-            width: 150px; height: 150px;
-            transform: rotate(-30deg);
-        }
+nav a {
+    text-decoration: none;
+    color: var(--dark-text);
+    font-weight: 600;
+    transition: 0.3s;
+}
 
-        .hero h1 { font-size: 3.5em; margin-bottom: 20px; font-weight: 700; }
-        .hero p { font-size: 1.3em; margin-bottom: 40px; max-width: 800px; margin: auto; font-weight: 300; }
+nav a:hover { color: var(--primary-blue); }
 
-        .btn {
-            display: inline-block;
-            background-color: var(--white);
-            color: var(--primary-blue);
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1em;
-            transition: 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        .btn:hover { background-color: #f0f0f0; color: #0056b3; transform: translateY(-2px); }
+.hero {
+    background: linear-gradient(135deg, var(--primary-blue), #0056b3);
+    color: var(--white);
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
+}
 
-        .section-padding { padding: 80px 0; }
-        .section-title {
-            font-size: 2.5em; text-align: center; margin-bottom: 60px;
-            color: var(--primary-blue); font-weight: 700; position: relative;
-        }
-        .section-title::after {
-            content: ''; position: absolute; bottom: -15px; left: 50%;
-            transform: translateX(-50%); width: 80px; height: 4px;
-            background-color: var(--primary-blue); border-radius: 2px;
-        }
+.hero::before, .hero::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
 
-        .card-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px; margin-top: 40px;
-        }
+.hero::before { top: -50px; left: -50px; width: 200px; height: 200px; transform: rotate(45deg); }
+.hero::after { bottom: -50px; right: -50px; width: 150px; height: 150px; transform: rotate(-30deg); }
 
-        .card {
-            background-color: var(--white);
-            border-radius: 12px;
-            box-shadow: 0 6px 15px var(--shadow);
-            padding: 30px;
-            text-align: center;
-            transition: 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); }
-        .card h3 { color: var(--primary-blue); font-size: 1.4em; margin-bottom: 15px; font-weight: 600; }
-        .card p { color: var(--light-text); font-size: 0.95em; }
+.hero h1 { font-size: 3em; margin-bottom: 20px; font-weight: 700; }
+.hero p { font-size: 1.2em; margin-bottom: 40px; max-width: 800px; margin: auto; font-weight: 300; }
 
-        /* About */
-        .about-section { background-color: var(--light-gray); padding: 80px 0; }
-        .about-content { display: flex; align-items: center; gap: 50px; }
-        .about-text { flex: 1; }
-        .about-text h2 { font-size: 2.2em; color: var(--primary-blue); margin-bottom: 20px; font-weight: 700; }
-        .about-text p { font-size: 1.1em; color: var(--light-text); margin-bottom: 20px; }
-        .about-image { flex: 1; text-align: center; }
+.btn {
+    display: inline-block;
+    background-color: var(--white);
+    color: var(--primary-blue);
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.btn:hover { background-color: #f0f0f0; color: #0056b3; transform: translateY(-2px); }
 
-        /* Steps */
-        .steps-intro { text-align: center; font-size: 1.1em; color: var(--light-text); margin-bottom: 60px; max-width: 900px; margin: auto; }
-        .step-item {
-            background-color: var(--secondary-blue);
-            padding: 20px; border-radius: 10px;
-            transition: 0.3s ease; text-align: center;
-            min-height: 180px; display: flex; flex-direction: column; justify-content: center;
-        }
-        .step-item:hover { background-color: #d1e7ff; }
-        .step-item h3 { font-size: 1.3em; color: var(--primary-blue); margin-bottom: 10px; font-weight: 600; }
+.section-padding { padding: 80px 0; }
+.section-title { font-size: 2.3em; text-align: center; margin-bottom: 50px; color: var(--primary-blue); font-weight: 700; position: relative; }
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-blue);
+    border-radius: 2px;
+}
 
-        /* CTA */
-        .call-to-action {
-            background-color: var(--primary-blue);
-            color: var(--white);
-            text-align: center;
-            padding: 60px 20px;
-            margin-top: 80px;
-        }
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
 
-        footer {
-            background-color: var(--dark-text);
-            color: var(--white);
-            text-align: center;
-            padding: 30px 0;
-            font-size: 0.9em;
-        }
-    </style>
+.card {
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 6px 15px var(--shadow);
+    padding: 30px;
+    text-align: center;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); }
+.card h3 { color: var(--primary-blue); font-size: 1.4em; margin-bottom: 15px; font-weight: 600; }
+.card p { color: var(--light-text); font-size: 0.95em; }
+
+.about-section { background: var(--light-gray); }
+
+.about-content {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-text { flex: 1; }
+.about-text h2 { font-size: 2.2em; color: var(--primary-blue); margin-bottom: 20px; font-weight: 700; }
+.about-text p { font-size: 1.1em; color: var(--light-text); margin-bottom: 20px; }
+.about-image { flex: 1; text-align: center; min-height: 200px; }
+
+.steps-intro {
+    text-align: center;
+    font-size: 1.1em;
+    color: var(--light-text);
+    margin-bottom: 60px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.step-item {
+    background-color: var(--secondary-blue);
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+    text-align: center;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.step-item:hover { background: #d1e7ff; }
+.step-item h3 { font-size: 1.3em; color: var(--primary-blue); margin-bottom: 10px; font-weight: 600; }
+
+.call-to-action {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 60px 20px;
+    margin-top: 80px;
+}
+
+footer {
+    background-color: var(--dark-text);
+    color: var(--white);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9em;
+}
+
+@media (max-width: 900px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
+}
+
+@media (max-width: 600px) {
+    .hero h1 { font-size: 2.2em; }
+    .hero p { font-size: 1em; }
+    .btn { font-size: 1em; padding: 12px 25px; }
+    .section-title { font-size: 1.9em; }
+}
+</style>
 </head>
 
 <body>
@@ -151,14 +208,14 @@
 <header>
     <div class="container">
         <div class="logo">Transformar para Convivir</div>
-  <nav>
-                <ul>
-                    <li><a href="quees.html">¿Qué es?</a></li>
-                    <li><a href="etapas.html">Etapas</a></li>
-                    <li><a href="tecnicas.html">Técnicas</a></li>
-                    <li><a href="Foro.html">Foro</a></li>
- 
-            </nav>
+        <nav>
+            <ul>
+                <li><a href="quees.html">¿Qué es?</a></li>
+                <li><a href="etapas.html">Etapas</a></li>
+                <li><a href="tecnicas.html">Técnicas</a></li>
+                <li><a href="Foro.html">Foro</a></li>
+            </ul>
+        </nav>
     </div>
 </header>
 
@@ -173,14 +230,11 @@
 <section id="que-es" class="section-padding about-section">
     <div class="container">
         <h2 class="section-title">¿Qué es el conflicto?</h2>
-
         <div class="about-content">
             <div class="about-text">
                 <p>Un conflicto aparece cuando dos o más personas perciben intereses, metas o valores opuestos. No siempre es negativo; señala que algo importante necesita atención o diálogo.</p>
-
-                <p>Transformar un conflicto implica cambiar la mirada: dejar de verlo como una amenaza y entenderlo como una oportunidad para fortalecer relaciones, aclarar necesidades y construir soluciones más justas.</p>
-
-                <p>Muchos conflictos surgen por factores como desinformación, diferencias de percepción, emociones acumuladas o desigualdades de poder. Reconocerlos permite intervenir a tiempo, evitar escaladas y fomentar ambientes de convivencia sana.</p>
+                <p>Transformarlo implica cambiar la mirada: dejar de verlo como una amenaza y entenderlo como una oportunidad para fortalecer relaciones, aclarar necesidades y construir soluciones más justas.</p>
+                <p>Muchos surgen por desinformación, diferencias de percepción, emociones acumuladas o desigualdades de poder. Reconocerlos permite intervenir a tiempo, evitar escaladas y fomentar convivencia sana.</p>
             </div>
             <div class="about-image"></div>
         </div>
@@ -195,27 +249,23 @@
         <div class="card-grid">
             <div class="step-item">
                 <h3>Incubación</h3>
-                <p>Surgen señales sutiles: comentarios indirectos, tensiones silenciosas o expectativas incumplidas.</p>
+                <p>Surgen señales sutiles: tensiones silenciosas o expectativas incumplidas.</p>
             </div>
-
             <div class="step-item">
                 <h3>Manifestación</h3>
-                <p>El malestar se expresa abiertamente a través de discusiones, reproches o cambios en el tono emocional.</p>
+                <p>El malestar se expresa abiertamente mediante discusiones o reproches.</p>
             </div>
-
             <div class="step-item">
                 <h3>Explosión</h3>
-                <p>Momento de mayor tensión: emociones intensas, decisiones impulsivas o confrontación directa.</p>
+                <p>Momento de mayor tensión: emociones intensas o confrontación directa.</p>
             </div>
-
             <div class="step-item">
                 <h3>Agotamiento</h3>
-                <p>Las partes se cansan de discutir, aparece la distancia o la sensación de no avanzar.</p>
+                <p>Las partes se cansan, aparece distancia o sensación de no avanzar.</p>
             </div>
-
             <div class="step-item">
                 <h3>Resolución</h3>
-                <p>Se alcanzan acuerdos, compromisos o nuevas formas de relación que cierran el ciclo.</p>
+                <p>Se alcanzan acuerdos y nuevas formas de relación.</p>
             </div>
         </div>
     </div>
@@ -224,28 +274,13 @@
 <section id="tecnicas" class="section-padding about-section">
     <div class="container">
         <h2 class="section-title">Técnicas de negociación y transformación</h2>
-        <p class="steps-intro">La forma en que abordamos un conflicto determina su resultado. Estas son algunas técnicas esenciales:</p>
+        <p class="steps-intro">La forma en que abordamos un conflicto determina su resultado.</p>
 
         <div class="card-grid">
-            <div class="card">
-                <h3>Negociación competitiva</h3>
-                <p>Prioriza ganar por encima del otro. Útil en decisiones rápidas, pero puede generar resentimiento.</p>
-            </div>
-
-            <div class="card">
-                <h3>Negociación colaborativa</h3>
-                <p>Busca un beneficio mutuo mediante escucha activa y creatividad. Es la más efectiva para construir vínculos sanos.</p>
-            </div>
-
-            <div class="card">
-                <h3>Negociación flexible</h3>
-                <p>Se adapta a la otra parte para mantener la relación, útil cuando el vínculo es más importante que el resultado inmediato.</p>
-            </div>
-
-            <div class="card">
-                <h3>Negociación consultiva</h3>
-                <p>Se aplica cuando insistir aumenta el conflicto. Permite detenerse, reflexionar y evitar daños mayores.</p>
-            </div>
+            <div class="card"><h3>Negociación competitiva</h3><p>Prioriza ganar por encima del otro. Puede generar resentimiento.</p></div>
+            <div class="card"><h3>Negociación colaborativa</h3><p>Busca beneficio mutuo mediante escucha y creatividad.</p></div>
+            <div class="card"><h3>Negociación flexible</h3><p>Se adapta para preservar la relación cuando es lo más importante.</p></div>
+            <div class="card"><h3>Negociación consultiva</h3><p>Se usa cuando insistir aumenta el conflicto; permite detenerse y evitar daños.</p></div>
         </div>
     </div>
 </section>
@@ -255,15 +290,15 @@
         <h2 class="section-title">Recursos descargables</h2>
 
         <p style="text-align:center; max-width:800px; margin:0 auto 40px; color:var(--light-text);">
-            Accede a guías prácticas, fichas de trabajo, ejercicios de comunicación asertiva y materiales diseñados para fortalecer tu capacidad de transformar conflictos.
+            Accede a guías, fichas de trabajo y materiales diseñados para fortalecer tu capacidad de transformar conflictos.
         </p>
 
         <p style="text-align:center; max-width:800px; margin:0 auto 40px; color:var(--light-text);">
-            También encontrarás ejemplos de acuerdos, métodos de mediación, plantillas para identificar intereses y actividades para aplicar estrategias de diálogo efectivo.
+            Encuentra ejemplos de acuerdos, métodos de mediación y plantillas para identificar intereses.
         </p>
 
         <p style="text-align:center; max-width:800px; margin:0 auto 40px; color:var(--light-text);">
-            Todo el contenido está pensado para usarse en el aula, en el trabajo o en la vida cotidiana, promoviendo una convivencia centrada en el respeto y la cooperación.
+            Útiles en el aula, trabajo o vida cotidiana, promoviendo convivencia basada en respeto y cooperación.
         </p>
     </div>
 </section>
@@ -271,7 +306,7 @@
 <section id="participa" class="call-to-action">
     <div class="container">
         <h2>Únete y Participa</h2>
-        <p>Contribuye al foro, comparte experiencias, aprende nuevas herramientas y forma parte de una comunidad comprometida con la convivencia pacífica.</p>
+        <p>Contribuye al foro, comparte experiencias y forma parte de una comunidad comprometida con la convivencia pacífica.</p>
         <a href="#" class="btn">Inscribirme al taller</a>
     </div>
 </section>
