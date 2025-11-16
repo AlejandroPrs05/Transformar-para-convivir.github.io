@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Transformar para Convivir</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
 :root {
     --primary-blue: #007bff;
@@ -13,192 +14,112 @@
     --light-text: #666;
     --white: #fff;
     --light-gray: #f8f9fa;
-    --shadow: rgba(0, 0, 0, 0.08);
+    --border-color: #dee2e6;
+    --shadow: rgba(0,0,0,0.1);
 }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    line-height: 1.6;
-    color: var(--dark-text);
-    background-color: var(--white);
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Montserrat', sans-serif; color: var(--dark-text); background: var(--white); line-height: 1.6; }
+.container { width: 90%; max-width: 1200px; margin: auto; }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+/* Header */
+header { background: var(--white); box-shadow: 0 2px 10px var(--shadow); position: sticky; top: 0; z-index: 100; }
+header .container { display: flex; align-items: center; justify-content: space-between; padding: 15px 0; }
+.logo { font-weight: 700; font-size: 1.4em; color: var(--primary-blue); }
 
-header {
-    background: var(--white);
-    box-shadow: 0 2px 10px var(--shadow);
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo { font-weight: 700; font-size: 1.3em; color: var(--primary-blue); }
-
-nav ul {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-    margin: 0; padding: 0;
-}
-
-nav a {
-    text-decoration: none;
-    color: var(--dark-text);
-    font-weight: 600;
-    transition: 0.3s;
-}
-
+/* Menu */
+nav ul { list-style: none; display: flex; gap: 25px; }
+nav a { text-decoration: none; color: var(--dark-text); font-weight: 600; }
 nav a:hover { color: var(--primary-blue); }
 
+#menu-toggle { display: none; }
+.menu-btn { display: none; font-size: 1.8em; cursor: pointer; color: var(--primary-blue); }
+
+/* HERO */
 .hero {
     background: linear-gradient(135deg, var(--primary-blue), #0056b3);
     color: var(--white);
     text-align: center;
     padding: 100px 20px;
-    position: relative;
-    overflow: hidden;
 }
-
-.hero::before, .hero::after {
-    content: '';
-    position: absolute;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-}
-
-.hero::before { top: -50px; left: -50px; width: 200px; height: 200px; transform: rotate(45deg); }
-.hero::after { bottom: -50px; right: -50px; width: 150px; height: 150px; transform: rotate(-30deg); }
-
-.hero h1 { font-size: 3em; margin-bottom: 20px; font-weight: 700; }
-.hero p { font-size: 1.2em; margin-bottom: 40px; max-width: 800px; margin: auto; font-weight: 300; }
-
+.hero h1 { font-size: 3em; font-weight: 700; margin-bottom: 20px; }
+.hero p { font-size: 1.2em; max-width: 750px; margin: auto; margin-bottom: 35px; }
 .btn {
     display: inline-block;
-    background-color: var(--white);
-    color: var(--primary-blue);
     padding: 15px 35px;
     border-radius: 50px;
     text-decoration: none;
+    background: var(--white);
+    color: var(--primary-blue);
     font-weight: 600;
     font-size: 1.1em;
-    transition: 0.3s;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-.btn:hover { background-color: #f0f0f0; color: #0056b3; transform: translateY(-2px); }
-
-.section-padding { padding: 80px 0; }
-.section-title { font-size: 2.3em; text-align: center; margin-bottom: 50px; color: var(--primary-blue); font-weight: 700; position: relative; }
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background-color: var(--primary-blue);
-    border-radius: 2px;
 }
 
+/* Sections */
+.section-padding { padding: 70px 0; }
+.section-title {
+    text-align: center;
+    font-size: 2.3em;
+    color: var(--primary-blue);
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+/* About */
+.about-section { background: var(--light-gray); }
+.about-content { display: flex; gap: 40px; align-items: center; }
+.about-text p { margin-bottom: 20px; color: var(--light-text); }
+
+/* Cards & grids */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
     gap: 30px;
-    margin-top: 40px;
 }
-
-.card {
-    background-color: var(--white);
+.card, .step-item {
+    background: var(--white);
+    padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 6px 15px var(--shadow);
-    padding: 30px;
-    text-align: center;
-    transition: 0.3s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    box-shadow: 0 4px 12px var(--shadow);
 }
-.card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); }
-.card h3 { color: var(--primary-blue); font-size: 1.4em; margin-bottom: 15px; font-weight: 600; }
-.card p { color: var(--light-text); font-size: 0.95em; }
-
-.about-section { background: var(--light-gray); }
-
-.about-content {
-    display: flex;
-    gap: 50px;
-    align-items: center;
+.card h3, .step-item h3 {
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+    font-weight: 600;
 }
 
-.about-text { flex: 1; }
-.about-text h2 { font-size: 2.2em; color: var(--primary-blue); margin-bottom: 20px; font-weight: 700; }
-.about-text p { font-size: 1.1em; color: var(--light-text); margin-bottom: 20px; }
-.about-image { flex: 1; text-align: center; min-height: 200px; }
-
-.steps-intro {
-    text-align: center;
-    font-size: 1.1em;
-    color: var(--light-text);
-    margin-bottom: 60px;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.step-item {
-    background-color: var(--secondary-blue);
-    padding: 20px;
-    border-radius: 10px;
-    transition: 0.3s;
-    text-align: center;
-    min-height: 180px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.step-item:hover { background: #d1e7ff; }
-.step-item h3 { font-size: 1.3em; color: var(--primary-blue); margin-bottom: 10px; font-weight: 600; }
-
+/* CTA */
 .call-to-action {
-    background-color: var(--primary-blue);
+    background: var(--primary-blue);
     color: var(--white);
     text-align: center;
     padding: 60px 20px;
-    margin-top: 80px;
 }
+.call-to-action .btn { background: var(--white); color: var(--primary-blue); }
 
+/* Footer */
 footer {
-    background-color: var(--dark-text);
+    background: var(--dark-text);
     color: var(--white);
     text-align: center;
     padding: 30px 0;
-    font-size: 0.9em;
 }
 
+/* Responsive */
 @media (max-width: 900px) {
-    .about-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    header .container {
-        flex-direction: column;
-        gap: 15px;
-    }
-    nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
+    .about-content { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 750px) {
+    nav ul { position: absolute; top: 70px; right: 0; width: 100%; background: var(--white); flex-direction: column; align-items: center; gap: 20px; padding: 20px 0; display: none; box-shadow: 0 4px 15px var(--shadow); }
+    #menu-toggle:checked + nav ul { display: flex; }
+    .menu-btn { display: block; }
+    nav { position: relative; }
 }
 
 @media (max-width: 600px) {
-    .hero h1 { font-size: 2.2em; }
-    .hero p { font-size: 1em; }
-    .btn { font-size: 1em; padding: 12px 25px; }
-    .section-title { font-size: 1.9em; }
+    .hero h1 { font-size: 2.3em; }
+    .hero p { font-size: 1.05em; }
 }
 </style>
 </head>
@@ -208,6 +129,10 @@ footer {
 <header>
     <div class="container">
         <div class="logo">Transformar para Convivir</div>
+
+        <label for="menu-toggle" class="menu-btn">☰</label>
+        <input type="checkbox" id="menu-toggle">
+
         <nav>
             <ul>
                 <li><a href="quees.html">¿Qué es?</a></li>
@@ -230,11 +155,12 @@ footer {
 <section id="que-es" class="section-padding about-section">
     <div class="container">
         <h2 class="section-title">¿Qué es el conflicto?</h2>
+
         <div class="about-content">
             <div class="about-text">
-                <p>Un conflicto aparece cuando dos o más personas perciben intereses, metas o valores opuestos. No siempre es negativo; señala que algo importante necesita atención o diálogo.</p>
-                <p>Transformarlo implica cambiar la mirada: dejar de verlo como una amenaza y entenderlo como una oportunidad para fortalecer relaciones, aclarar necesidades y construir soluciones más justas.</p>
-                <p>Muchos surgen por desinformación, diferencias de percepción, emociones acumuladas o desigualdades de poder. Reconocerlos permite intervenir a tiempo, evitar escaladas y fomentar convivencia sana.</p>
+                <p>Un conflicto aparece cuando dos o más personas perciben intereses, metas o valores opuestos.</p>
+                <p>Transformarlo implica verlo como una oportunidad para fortalecer relaciones.</p>
+                <p>Muchos conflictos surgen por desinformación, emociones acumuladas o diferencias de percepción.</p>
             </div>
             <div class="about-image"></div>
         </div>
@@ -244,76 +170,41 @@ footer {
 <section id="etapas" class="section-padding">
     <div class="container">
         <h2 class="section-title">Etapas del conflicto</h2>
-        <p class="steps-intro">Comprender las etapas ayuda a intervenir a tiempo y elegir la estrategia más adecuada.</p>
 
         <div class="card-grid">
-            <div class="step-item">
-                <h3>Incubación</h3>
-                <p>Surgen señales sutiles: tensiones silenciosas o expectativas incumplidas.</p>
-            </div>
-            <div class="step-item">
-                <h3>Manifestación</h3>
-                <p>El malestar se expresa abiertamente mediante discusiones o reproches.</p>
-            </div>
-            <div class="step-item">
-                <h3>Explosión</h3>
-                <p>Momento de mayor tensión: emociones intensas o confrontación directa.</p>
-            </div>
-            <div class="step-item">
-                <h3>Agotamiento</h3>
-                <p>Las partes se cansan, aparece distancia o sensación de no avanzar.</p>
-            </div>
-            <div class="step-item">
-                <h3>Resolución</h3>
-                <p>Se alcanzan acuerdos y nuevas formas de relación.</p>
-            </div>
+            <div class="step-item"><h3>Incubación</h3><p>Señales sutiles o tensiones silenciosas.</p></div>
+            <div class="step-item"><h3>Manifestación</h3><p>El malestar se expresa abiertamente.</p></div>
+            <div class="step-item"><h3>Explosión</h3><p>Máxima tensión y emociones intensas.</p></div>
+            <div class="step-item"><h3>Agotamiento</h3><p>Las partes se cansan y se distancian.</p></div>
+            <div class="step-item"><h3>Resolución</h3><p>Se alcanzan acuerdos y nuevos compromisos.</p></div>
         </div>
     </div>
 </section>
 
 <section id="tecnicas" class="section-padding about-section">
     <div class="container">
-        <h2 class="section-title">Técnicas de negociación y transformación</h2>
-        <p class="steps-intro">La forma en que abordamos un conflicto determina su resultado.</p>
+        <h2 class="section-title">Técnicas de negociación</h2>
 
         <div class="card-grid">
-            <div class="card"><h3>Negociación competitiva</h3><p>Prioriza ganar por encima del otro. Puede generar resentimiento.</p></div>
-            <div class="card"><h3>Negociación colaborativa</h3><p>Busca beneficio mutuo mediante escucha y creatividad.</p></div>
-            <div class="card"><h3>Negociación flexible</h3><p>Se adapta para preservar la relación cuando es lo más importante.</p></div>
-            <div class="card"><h3>Negociación consultiva</h3><p>Se usa cuando insistir aumenta el conflicto; permite detenerse y evitar daños.</p></div>
+            <div class="card"><h3>Competitiva</h3><p>Busca ventaja propia.</p></div>
+            <div class="card"><h3>Colaborativa</h3><p>Busca beneficios mutuos.</p></div>
+            <div class="card"><h3>Flexible</h3><p>Prioriza la relación.</p></div>
+            <div class="card"><h3>Consultiva</h3><p>Pausa para evitar daños mayores.</p></div>
         </div>
     </div>
 </section>
 
-<section id="recursos" class="section-padding">
-    <div class="container">
-        <h2 class="section-title">Recursos descargables</h2>
-
-        <p style="text-align:center; max-width:800px; margin:0 auto 40px; color:var(--light-text);">
-            Accede a guías, fichas de trabajo y materiales diseñados para fortalecer tu capacidad de transformar conflictos.
-        </p>
-
-        <p style="text-align:center; max-width:800px; margin:0 auto 40px; color:var(--light-text);">
-            Encuentra ejemplos de acuerdos, métodos de mediación y plantillas para identificar intereses.
-        </p>
-
-        <p style="text-align:center; max-width:800px; margin:0 auto 40px; color:var(--light-text);">
-            Útiles en el aula, trabajo o vida cotidiana, promoviendo convivencia basada en respeto y cooperación.
-        </p>
-    </div>
-</section>
-
-<section id="participa" class="call-to-action">
+<section class="call-to-action">
     <div class="container">
         <h2>Únete y Participa</h2>
-        <p>Contribuye al foro, comparte experiencias y forma parte de una comunidad comprometida con la convivencia pacífica.</p>
-        <a href="#" class="btn">Inscribirme al taller</a>
+        <p>Comparte experiencias y aprende nuevas herramientas.</p>
+        <a href="#" class="btn">Inscribirme</a>
     </div>
 </section>
 
 <footer>
     <div class="container">
-        <p>&copy; 2025 Transformar para Convivir — Proyecto educativo para la transformación positiva de conflictos.</p>
+        <p>&copy; 2025 Transformar para Convivir</p>
     </div>
 </footer>
 
