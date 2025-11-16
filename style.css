@@ -38,3 +38,19 @@ header {
         header nav ul li a:hover {
             color: rgba(255, 255, 255, 0.8);
         }
+
+@media (max-width: 900px) {
+    .about-content { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 750px) {
+    nav ul { position: absolute; top: 70px; right: 0; width: 100%; background: var(--white); flex-direction: column; align-items: center; gap: 20px; padding: 20px 0; display: none; box-shadow: 0 4px 15px var(--shadow); }
+    #menu-toggle:checked + nav ul { display: flex; }
+    .menu-btn { display: block; }
+    nav { position: relative; }
+}
+
+@media (max-width: 600px) {
+    .hero h1 { font-size: 2.3em; }
+    .hero p { font-size: 1.05em; }
+}
