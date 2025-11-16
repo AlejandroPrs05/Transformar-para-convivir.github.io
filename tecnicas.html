@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformar para Convivir - Técnicas de Negociación</title>
+        <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #007bff;
+            --secondary-blue: #e7f3ff;
+            --dark-text: #333;
+            --light-text: #666;
+            --white: #fff;
+            --light-gray: #f8f9fa;
+            --border-color: #dee2e6;
+            --shadow: rgba(0, 0, 0, 0.08);
+            --card-spacing: 30px;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-gray);
+        }
+
+        .container {
+            max-width: 1200px; /* Slightly narrower for focused content */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+       
+        /* Section Styling */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-blue);
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-blue);
+            border-radius: 2px;
+        }
+
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+            text-align: center;
+            font-size: 1.1em;
+            color: var(--dark-text);
+        }
+
+        /* Negotiation Technique Card */
+        .technique-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: var(--card-spacing);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .technique-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .technique-card h3 {
+            font-size: 2em; /* Larger title for the technique */
+            color: var(--primary-blue);
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+        }
+
+        .technique-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-blue);
+            border-radius: 2px;
+        }
+
+
+        .technique-card p {
+            font-size: 1em;
+            color: var(--dark-text);
+            margin-bottom: 15px;
+        }
+
+        .technique-card strong {
+            color: var(--primary-blue);
+        }
+
+        .technique-card h4 {
+            font-size: 1.3em;
+            color: var(--dark-text);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .technique-card ul {
+            list-style: none;
+            padding: 0;
+            margin-left: 20px;
+        }
+
+        .technique-card ul li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+            color: var(--light-text);
+        }
+
+        .technique-card ul li::before {
+            content: '•'; /* Custom bullet point */
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-size: 1.5em;
+            line-height: 1;
+            top: 2px;
+        }
+
+        /* Styling for the benefits/risks lists */
+        .benefits-risks {
+            display: grid;
+            grid-template-columns: 1fr; /* Single column by default */
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .benefits-risks h4 {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .benefits-risks ul {
+            margin-left: 0;
+            padding-left: 0;
+        }
+        .benefits-risks ul li::before {
+            content: '🔹'; /* Different bullet for these lists */
+            color: var(--primary-blue);
+        }
+
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9em;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+            }
+            header nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            header nav ul li {
+                margin: 0 10px 10px;
+            }
+            .section-title {
+                font-size: 2em;
+            }
+            .intro-text {
+                font-size: 1em;
+            }
+            .technique-card {
+                padding: 30px;
+            }
+            .technique-card h3 {
+                font-size: 1.6em;
+            }
+            .technique-card h4 {
+                font-size: 1.1em;
+            }
+            .technique-card ul li {
+                font-size: 0.9em;
+                padding-left: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-padding {
+                padding: 50px 0;
+            }
+            .section-title {
+                font-size: 1.8em;
+            }
+            .technique-card {
+                padding: 20px;
+            }
+            .technique-card ul {
+                margin-left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+      <header>
+        <div class="container">
+            <div class="logo">Transformar para Convivir</div>
+            <nav>
+                <ul>
+                    <li><a href="quees.html">¿Qué es?</a></li>
+                    <li><a href="etapas.html">Etapas</a></li>
+                    <li><a href="tecnicas.html">Técnicas</a></li>
+                    <li><a href="recursos.html">Recursos</a></li>
+ <li><a href="Foro.html">Participa</a></li>                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Técnicas de negociación</h2>
+            <p class="intro-text">
+                La manera en que negociamos define no solo el resultado de un conflicto, sino también la calidad de la relación después del encuentro. A continuación encontrarás una explicación más profunda de cada estilo de negociación, cuándo emplearlo y qué riesgos o beneficios puede tener.
+            </p>
+
+            <div class="technique-card">
+                <h3>Negociación competitiva</h3>
+                <p>Este estilo busca maximizar el beneficio propio, incluso si implica que la otra parte pierda. Es directa, firme y orientada al corto plazo. Puede ser efectiva, pero desgasta la confianza.</p>
+
+                <h4>Cuándo usarla:</h4>
+                <ul>
+                    <li>En negociaciones transaccionales sin relación futura.</li>
+                    <li>Cuando el objetivo es estrictamente económico.</li>
+                    <li>Cuando la otra parte adopta un estilo agresivo y se necesita firmeza.</li>
+                </ul>
+
+                <h4>Riesgos:</h4>
+                <ul>
+                    <li>Degradación de la relación.</li>
+                    <li>Percepción de hostilidad o manipulación.</li>
+                    <li>Escalada del conflicto si ambas partes compiten.</li>
+                </ul>
+            </div>
+
+            <div class="technique-card">
+                <h3>Negociación colaborativa</h3>
+                <p>Se basa en la cooperación, la empatía y la búsqueda de acuerdos que satisfagan las necesidades de ambas partes. Es la técnica más efectiva para relaciones duraderas y ambientes de trabajo sanos.</p>
+
+                <h4>Herramientas clave:</h4>
+                <ul>
+                    <li>Escucha activa y reformulación.</li>
+                    <li>Exploración de intereses reales detrás de las posiciones.</li>
+                    <li>Propuestas integradoras y creativas basadas en ganar-ganar.</li>
+                </ul>
+
+                <h4>Ventajas:</h4>
+                <ul>
+                    <li>Mejora la confianza.</li>
+                    <li>Fortalece vínculos y comunicación.</li>
+                    <li>Genera acuerdos estables a largo plazo.</li>
+                </ul>
+            </div>
+
+            <div class="technique-card">
+                <h3>Negociación flexible</h3>
+                <p>Este estilo prioriza mantener la relación y la armonía sobre los resultados inmediatos. Una parte cede terreno para evitar la confrontación o para demostrar buena voluntad.</p>
+
+                <h4>Cuándo usarla:</h4>
+                <ul>
+                    <li>Cuando la relación es más valiosa que el resultado inmediato.</li>
+                    <li>Para construir buena voluntad o invertir en futuras interacciones.</li>
+                    <li>Si el conflicto es menor y no vale la pena la confrontación.</li>
+                </ul>
+
+                <h4>Riesgos:</h4>
+                <ul>
+                    <li>Puede llevar a la explotación si la otra parte es competitiva.</li>
+                    <li>Acuerdos subóptimos o no equitativos.</li>
+                    <li>Frustración o resentimiento a largo plazo si las necesidades propias no se satisfacen.</li>
+                </ul>
+            </div>
+
+            <div class="technique-card">
+                <h3>Negociación evitativa</h3>
+                <p>Implica posponer, ignorar o retirarse del conflicto. No se abordan las preocupaciones de ninguna de las partes y el conflicto queda sin resolver.</p>
+
+                <h4>Cuándo usarla:</h4>
+                <ul>
+                    <li>Cuando el tema es trivial o de poca importancia.</li>
+                    <li>Si el costo de la confrontación supera los beneficios potenciales.</li>
+                    <li>Cuando se necesita tiempo para calmar las emociones o recopilar información.</li>
+                </ul>
+
+                <h4>Riesgos:</h4>
+                <ul>
+                    <li>El conflicto puede escalar o agravarse con el tiempo.</li>
+                    <li>Frustración y resentimiento acumulado entre las partes.</li>
+                    <li>Pérdida de oportunidades para mejorar la relación o encontrar soluciones.</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Transformar para Convivir — Proyecto educativo para la transformación positiva de conflictos.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Transformar para Convivir - Foro sin Registro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary-blue: #007bff;
+            --secondary-blue: #e7f3ff;
+            --dark-text: #333;
+            --light-text: #666;
+            --white: #fff;
+            --light-gray: #f8f9fa;
+            --border-color: #dee2e6;
+            --shadow: rgba(0, 0, 0, 0.08);
+        }
+
+         body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-gray);
+        }
+
+        .container {
+            max-width: 1200px; 
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .page-title {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-blue);
+            font-weight: 700;
+            position: relative;
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-blue);
+            border-radius: 2px;
+        }
+
+        /* Post Form */
+        #postForm {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px var(--shadow); /* Sombra más pronunciada */
+            margin-bottom: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #postForm:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border-radius: 8px; /* Bordes más redondeados */
+            border: 1px solid var(--border-color); /* Borde más suave */
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1em;
+            color: var(--dark-text);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box; /* Importante para padding y width */
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            border-color: var(--primary-blue); /* Borde azul al enfocar */
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Sombra suave al enfocar */
+            outline: none;
+        }
+
+        button {
+            display: inline-block;
+            background-color: var(--primary-blue); /* Azul primario */
+            color: var(--white);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px; /* Botón más redondeado (pill shape) */
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #0056b3; 
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Publications Section */
+        .section-subtitle {
+            font-size: 1.8em;
+            color: var(--primary-blue);
+            margin-top: 60px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .post {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); 
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .post:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+        }
+
+        .post h3 {
+            font-size: 1.5em;
+            color: var(--dark-text);
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .post p {
+            font-size: 1em;
+            color: var(--light-text);
+            margin-bottom: 15px;
+        }
+
+        .post .date {
+            font-size: 0.85em;
+            color: var(--light-text);
+            text-align: right;
+            border-top: 1px solid var(--border-color);
+            padding-top: 10px;
+            margin-top: 15px;
+        }
+
+        /* Footer (consistent with other pages) */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9em;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+            }
+            header nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            header nav ul li {
+                margin: 0 10px 10px;
+            }
+            .page-title {
+                font-size: 2em;
+                margin-bottom: 40px;
+            }
+            #postForm {
+                padding: 20px;
+            }
+            input[type="text"],
+            textarea {
+                padding: 10px 12px;
+                font-size: 0.95em;
+            }
+            button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+            .section-subtitle {
+                font-size: 1.5em;
+                margin-top: 40px;
+                margin-bottom: 20px;
+            }
+            .post {
+                padding: 20px;
+            }
+            .post h3 {
+                font-size: 1.3em;
+            }
+            .post p {
+                font-size: 0.95em;
+            }
+            .post .date {
+                font-size: 0.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .page-title {
+                font-size: 1.8em;
+                margin-bottom: 30px;
+            }
+            #postForm {
+                margin-bottom: 30px;
+            }
+            .section-subtitle {
+                font-size: 1.3em;
+            }
+            .post {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+       <header>
+        <div class="container">
+            <div class="logo">Transformar para Convivir</div>
+            <nav>
+                <ul>
+                    <li><a href="quees.html">¿Qué es?</a></li>
+                    <li><a href="etapas.html">Etapas</a></li>
+                    <li><a href="tecnicas.html">Técnicas</a></li>
+                    <li><a href="recursos.html">Recursos</a></li>
+                    <li><a href="participa.html">Participa</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">¡Participa!</h1>
+
+        <div id="postForm">
+            <input type="text" id="title" placeholder="Título del post">
+            <textarea id="content" placeholder="Contenido..." rows="6"></textarea>
+            <button onclick="submitPost()">Publicar</button>
+        </div>
+
+        <h2 class="section-subtitle">Publicaciones Recientes</h2>
+        <div id="posts">
+            <!-- Los posts se cargarán aquí dinámicamente -->
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Transformar para Convivir — Proyecto educativo para la transformación positiva de conflictos.</p>
+        </div>
+    </footer>
+
+    <script>
+      
+        const BIN_ID = "691912cdd0ea881f40eae4a5"; 
+        const API_KEY = "$2a$10$lqQrWK/i0X2pf.GR.3LtP.DVpZ3X9njpiSEK4IvtMBpfiHDvIonIq";
+        const API_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
+
+        async function loadPosts() {
+            try {
+                const response = await fetch(API_URL, {
+                    headers: { "X-Master-Key": API_KEY }
+                });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                const posts = data.record.posts || []; 
+                renderPosts(posts);
+            } catch (error) {
+                console.error("Error cargando posts:", error);
+                document.getElementById("posts").innerHTML = "<p style='text-align: center; color: var(--light-text);'>No se pudieron cargar las publicaciones. Intenta de nuevo más tarde.</p>";
+            }
+        }
+
+        function renderPosts(posts) {
+            const container = document.getElementById("posts");
+            container.innerHTML = "";
+
+            if (posts.length === 0) {
+                container.innerHTML = "<p style='text-align: center; color: var(--light-text);'>Aún no hay publicaciones en el foro. ¡Sé el primero en publicar!</p>";
+                return;
+            }
+
+            posts.slice().reverse().forEach(p => {
+                container.innerHTML += `
+                    <div class="post">
+                        <h3>${p.title}</h3>
+                        <p>${p.content}</p>
+                        <div class="date">${p.date}</div>
+                    </div>
+                `;
+            });
+        }
+
+        async function submitPost() {
+            const titleInput = document.getElementById("title");
+            const contentTextarea = document.getElementById("content");
+            const title = titleInput.value.trim();
+            const content = contentTextarea.value.trim();
+
+            if (!title || !content) {
+                alert("Por favor, completa el título y el contenido del post.");
+                return;
+            }
+
+            try {
+                const getResponse = await fetch(API_URL, {
+                    headers: { "X-Master-Key": API_KEY }
+                });
+                if (!getResponse.ok) {
+                    throw new Error(`HTTP error! status: ${getResponse.status}`);
+                }
+                const getData = await getResponse.json();
+                const currentPosts = getData.record.posts || [];
+
+                currentPosts.push({
+                    title,
+                    content,
+                    date: new Date().toLocaleString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })
+                });
+                const putResponse = await fetch(API_URL, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-Master-Key": API_KEY,
+                        "X-Bin-Versioning": "false" 
+                    },
+                    body: JSON.stringify({ posts: currentPosts })
+                });
+                if (!putResponse.ok) {
+                    throw new Error(`HTTP error! status: ${putResponse.status}`);
+                }
+                titleInput.value = "";
+                contentTextarea.value = "";
+                loadPosts();
+            } catch (error) {
+                console.error("Error publicando el post:", error);
+                alert("Hubo un error al publicar tu post. Intenta de nuevo.");
+            }
+        }
+
+        loadPosts();
+    </script>
+</body>
+</html>

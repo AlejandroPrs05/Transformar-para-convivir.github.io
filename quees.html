@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformar para Convivir - ¿Qué es el conflicto?</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #007bff;
+            --secondary-blue: #e7f3ff;
+            --dark-text: #333;
+            --light-text: #666;
+            --white: #fff;
+            --light-gray: #f8f9fa;
+            --border-color: #dee2e6;
+            --shadow: rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-gray);
+            /* Lighter background for the whole page */
+        }
+
+        .container {
+            max-width: 1200px;
+            /* Slightly narrower for focused content */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+
+
+        /* Section Styling */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-blue);
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-blue);
+            border-radius: 2px;
+        }
+
+
+        /* Section Styling */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-blue);
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-blue);
+            border-radius: 2px;
+        }
+
+        .text-block {
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        /* =======================
+           GRID DE 4 TARJETAS
+        ======================== */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* 4 en línea */
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+                /* Tablet */
+            }
+        }
+
+        @media (max-width: 500px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+                /* Celular */
+            }
+        }
+
+        .card {
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 6px 15px var(--shadow);
+            padding: 30px;
+            text-align: center;
+            transition: 0.3s ease;
+            min-height: 220px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            color: var(--primary-blue);
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: var(--light-text);
+            font-size: 0.95em;
+        }
+
+        /* Section Importante */
+        .important-section {
+            background-color: var(--secondary-blue);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .important-section .container {
+            max-width: 900px;
+        }
+
+        .important-section h2 {
+            font-size: 2.2em;
+            color: var(--primary-blue);
+            margin-bottom: 40px;
+        }
+
+        .important-section ul {
+            list-style: none;
+            padding: 0;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .important-section ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        .important-section ul li::before {
+            content: "✔️";
+            position: absolute;
+            left: 0;
+        }
+
+        /* CTA */
+        .bottom-cta {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .bottom-cta h2 {
+            font-size: 2.5em;
+            color: var(--primary-blue);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 50px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+
+      <header>
+        <div class="container">
+            <div class="logo">Transformar para Convivir</div>
+            <nav>
+                <ul>
+                    <li><a href="quees.html">¿Qué es?</a></li>
+                    <li><a href="etapas.html">Etapas</a></li>
+                    <li><a href="tecnicas.html">Técnicas</a></li>
+                    <li><a href="recursos.html">Recursos</a></li>
+ <li><a href="Foro.html">Participa</a></li>                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title">¿Qué es el conflicto?</h2>
+
+            <p class="text-block">
+                Un conflicto es una interacción entre personas o grupos cuyos intereses, percepciones o necesidades
+                parecen incompatibles.
+            </p>
+
+            <p class="text-block">
+                Lejos de ser negativo, el conflicto es una oportunidad para revisar cómo nos relacionamos, comunicamos y
+                construimos acuerdos.
+            </p>
+
+            <h2 class="section-title" style="margin-top: 80px;">Tipos de conflicto</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Conflictos de intereses</h3>
+                    <p>Surgen cuando las partes desean recursos o resultados distintos.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Conflictos de valores</h3>
+                    <p>Aparecen cuando chocan creencias o principios profundos.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Conflictos de relación</h3>
+                    <p>Se originan en malentendidos o comunicación deficiente.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Conflictos estructurales</h3>
+                    <p>Provienen de desigualdades o reglas poco claras.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="important-section">
+        <div class="container">
+            <h2>¿Por qué es importante comprender el conflicto?</h2>
+
+            <ul>
+                <li>Permite anticipar señales tempranas.</li>
+                <li>Facilita la comunicación sin atacar.</li>
+                <li>Construye acuerdos duraderos.</li>
+                <li>Fortalece relaciones.</li>
+                <li>Mejora la toma de decisiones.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="bottom-cta">
+        <div class="container">
+            <h2>Conflicto y convivencia</h2>
+            <a href="#" class="btn">Volver al inicio</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Transformar para Convivir — Proyecto educativo.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
